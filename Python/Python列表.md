@@ -1,6 +1,6 @@
 [TOC]
 
-# LIST的相关方法
+# Python列表
 
 ## 追加元素
 
@@ -99,14 +99,45 @@ list.copy()
 ## 列表的排序
 
 ```python
-list.sort()
+list.sort(key=None, reverse=False)
 ```
 
 对当前列表的所有元素，返回一个排序后的新列表。
 
 
 
+# 列表的应用
 
+## 模拟Stack栈
 
+使用append()入栈，pop()出栈。模拟先进后出。
 
+## 模拟Queues队列
+
+虽然内置的列表能够通过pop()第一个元素，来模拟队列的先进先出。但是效率很低，我们可以使用[`collections.deque`](../library/collections.html#collections.deque) 来实现队列。
+
+```python
+from collections import deque
+queue = deque(["Cloud","Sen","Less"])
+queue.append("Is") #在末尾追加IS
+queue.popleft(); #取出当前第一个Cloud
+queue.append("More") #在末尾追加More
+queue.popleft(); #取出当前第一个Sen
+输出：
+deque(['Less', 'Is', 'More'])
+```
+
+## 列表推导
+
+```python
+[x for x in range(10)]
+[x for x in range(10) if x%2==0]
+[(x,y) for x in range(10) for y in range(10) if x%2==0 and y%2==0]
+```
+
+语法：
+
+[如何显示x,y...n的值 关于x的for字句 关于y的for字句...关于n的for字句 if字句]
+
+## 列表推导嵌套
 
