@@ -31,7 +31,7 @@ list.insert(index,item)
 ## 移除元素
 
 ```python
-list.remove(item)
+list.remove(item)#根据值移除元素
 ```
 
 移除当前列表中，第一个值为item的元素，若不存在item会报以下错误：
@@ -39,6 +39,14 @@ list.remove(item)
 ```python
 ValueError: list.remove(item): item not in list
 ```
+
+```python
+del list[index]#根据下标移除元素
+del list[index1,index2]#根据下标移除某范围的元素
+del list #直接删除了该list的引用,list不再指向某个地址
+```
+
+
 
 ## 取出元素
 
@@ -141,3 +149,10 @@ deque(['Less', 'Is', 'More'])
 
 ## 列表推导嵌套
 
+```python
+In [1]:matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+In [2]:[[row[i] for row in matrix] for i in range(4)]
+Out[3]: [[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
+```
+
+将一个列表推导的值，放到另一个列表推导中使用。类似于for的嵌套。
