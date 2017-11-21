@@ -1,6 +1,6 @@
 ---
-title: GIT入门(2)  
-date: 2017-11-19 12:15:54  
+title: GIT入门(1)  
+date: 2017-11-20 12:15:54  
 tags:  
   - GIT  
 category: "版本控制"
@@ -14,10 +14,11 @@ Pro Git, Second Edition 读书笔记
 本人菜鸟，若发现错误，感激指正~~!  
 
 {% endcq %}  
+<!-- more -->
 <!-- toc -->
 ![git](http://ouq9v8coj.bkt.clouddn.com/images/GIT%E5%85%A5%E9%97%A82-1.jpg)  
-  
-# GIT入门(2)——首次配置
+
+# GIT入门(1)——首次配置
 ## 配置详解
 通过**git config**工具来配置GIT环境，通过它我们能获得和设置配置变量。  
 GIT的配置变量存储在三个不同的位置：  
@@ -26,14 +27,14 @@ GIT的配置变量存储在三个不同的位置：
 
 传入参数|配置变量的位置|解释|优先级
 :----|:----|:----|:----
-"--system"|/etc/gitconfig|包含了系统中所有用户及其仓库|低
-"--global"|~/.gitconfig 或 ~/.config/git/config| 针对当前PC登录者|中
+system|/etc/gitconfig|包含了系统中所有用户及其仓库|低
+global|~/.gitconfig 或 ~/.config/git/config| 针对当前PC登录者|中
 无参|git/config| 针对当前仓库|高
 对于Windows系统：  
 可以通过在GIT BASH中键入`git config --list --show-origin`来查看各个配置属性的存放位置：  
 ![demo1](http://ouq9v8coj.bkt.clouddn.com/images/GIT%E5%85%A5%E9%97%A82-2.gif)  
 由上方表格可知，GIT的配置文件在不同域具有不同的优先级，git config 会选择优先级较高的配置。  
-<!-- more -->  
+
 ## 常用的配置变量
 变量名|作用|建议值
 :----|:----|:----
@@ -51,10 +52,10 @@ $ git config --core.autocrlf false
 $ git config --core.autosafecrlf true
 {% endcodeblock %}  
 ![demo2](http://ouq9v8coj.bkt.clouddn.com/images/GIT%E5%85%A5%E9%97%A82-3.gif)  
-正所谓没有消息，就是最好的消息。如果一次键入以上配置后，没有任何提示信息，那么就表示设置成功了~！  
+正所谓没有消息，就是最好的消息。如果依次键入以上配置后，没有任何提示信息，那么就表示设置成功了~！  
 {% note info %}  
 编辑器按自己喜好定，可以是emacs、vi、notepad++等。  
-Windows的回车换行符是CRLF，而UNIX使用的LF，两者是不兼容的。 
+Windows的回车换行符是CRLF，而UNIX使用的LF，两者是不兼容的。
 类似的历史问题还有Windows的反斜杠(反人类)。  
 {% endnote %}
 {% note warning %}  

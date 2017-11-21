@@ -13,7 +13,7 @@ Pro Git, Second Edition 读书笔记
 本人菜鸟，若发现错误，感激指正~~！
 
 {% endcq %}
-
+<!-- more -->
 <!-- toc -->
 
 ![Git](http://ouq9v8coj.bkt.clouddn.com/images/versionControll.bmp)
@@ -38,8 +38,8 @@ Pro Git, Second Edition 读书笔记
 - 设计简洁
 - 对非线性开发强有力的支持
 - 分布式设计
+- 大多数操作都在本地进行
 
-<!-- more -->
 
 ## 集中式版本控制系统和分布式版本控制系统
 
