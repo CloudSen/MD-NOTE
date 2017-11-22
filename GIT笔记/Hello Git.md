@@ -18,7 +18,7 @@ Pro Git, Second Edition 读书笔记
 
 ![Git](http://ouq9v8coj.bkt.clouddn.com/images/versionControll.bmp)
 
-# GIT入门(1) 
+# GIT入门(1)
 
 ## 本节必知名词
 
@@ -27,7 +27,7 @@ Pro Git, Second Edition 读书笔记
 - DVCS : Distributed Version Control System 分布式版本控制系统
 - stage/unstage : 暂存/未暂存
 - repository : 仓库
-- commit : 提交暂存到**本地 **数据库
+- commit : 提交暂存到**本地**数据库
 - push : 使用本地引用更新远程引用，同时发送完成给定引用所需的对象
 - pull : 将远程存储库中的更改合并到当前分支中
 - check out : 检出项目
@@ -98,7 +98,7 @@ GIT的校验和机制采用的**SHA-1**散列，GIT通过信息的散列值来�
 >
 > 这里也表明了GIT的速度为什么快，当你要查看某个版本时，由于其他版本控制系统存储的是与初始版本的差异，因此在加载之前一定会有一个合并的操作，而GIT不需要，直接加载快照即可。
 
-GIT基本上所有的操作都是像数据库中添加数据，因此很难发生数据丢失的惨况。
+GIT基本上所有的操作都是向数据库中添加数据，因此很难发生数据丢失的惨况。
 
 ## GIT的三大状态【重点】
 
@@ -138,4 +138,8 @@ staging area->git directory(repository): commit
 git directory(repository)->workingDir: check out
 ```
 ```flow
-```
+```  
+**注意**：  
+从这里的关系图可知，GIT的暂存区是个非常重要的概念，它是工作区和GIT目录的桥梁，
+版本库只会从暂存里取得快照并保存，并不关心工作区是什么内容。所以，我们对工作区的文件进行改动后，都要放入暂存区形成快照，才能提交到版本库。  
+> commit可以提交单个文件，也可以提交多个文件，把此次需要提交的文件放入暂存区即可，并且commit是符合原子性的。  

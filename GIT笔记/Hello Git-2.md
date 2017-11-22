@@ -48,24 +48,100 @@ $ git config --global user.email = "你的邮箱"
     $ git init
     ```  
     ![demo3](http://ouq9v8coj.bkt.clouddn.com/images/gittest3.gif)  
-此时我们就成功建立了一个GIT版本控制仓库，在GitRepository文件夹中多了一个.git文件夹，它的作用就是用来跟踪和管理版本库。  
+此时我们就成功建立了一个GIT版本控制仓库，在GitRepository文件夹中多了一个.git文件夹，它的作用就是用来跟踪和管理版本库，其余的部分就是工作区间。  
 
-## GIT初尝试
-有了GIT仓库后，我们就可以把文件放入仓库，进行版本控制了。  
+## 基础的版本控制操作  
+进行版本控制的目的，就是追踪文件的变更，通过以下流程，就能通过GIT进行版本控制：
+  - 对文件进行操作(新增、修改、删除)
+  - 查看仓库状态
+  - 追踪(暂存)文件
+  - 循环前三步
+  - 提交追踪(暂存)到版本库  
 
-1. 首先在仓库新建一个`test.txt`文本文件,并随便写入一点内容(可以使用系统图形界面直接新建或复制一个文件过来):  
+涉及的操作如下：  
+  - `git status`指令可以查看当前文件的状态  
+  - `git status -s` or `git stauts -short`指令查看状态简短信息
+  - `git diff`指令查看当前工作区与暂存快照的比对
+  - `git add`指令添加内容到暂存区，等待下一次提交  
+  - `git commit -m "description"`指令提交暂存  
+
+通过以下实例来理解以上操作：  
+
+1. 首先，查看一下仓库的初始化状态，键入`git status`，就能查看当前仓库的状态：  
+    ```shell
+    $ git status
+
+    On branch master
+
+    No commits yet
+
+    nothing to commit (create/copy files and use "git add" to track)
+    ```  
+    当前仓库的状态为：目前处于master分支，目前没有提交，仓库没有任何变更。  
+
+    如果键入`git status -s`，则什么都不会显示，表示无任何变化。
+
+2. 在仓库新建一个`test.txt`文本文件,并随便写入一点内容(可以使用系统图形界面直接新建或复制一个文件过来):  
     ```shell
     $ cd /f/GitRepository
     $ vi test.txt
     ```  
     键入`i`进行插入，编辑完成后，按`ESC`后输入`:wq`保存并退出vi编辑器,此时就创建了一个新的test.txt,并且添加了一些文本。假设文本如下:
-    ```
+    ```shell
     Git is the god.
     Nintendo Switch NO.1
-    ```
+    ```  
 
-2. 现在仓库里有了文件，但是还差一步才能对它进行版本控制：  
+3. 再次查看当前仓库的状态：  
+    ```shell
+    $ git status
+
+    On branch master
+
+    No commits yet
+
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+
+            test.txt
+
+    nothing added to commit but untracked files present (use "git add" to track)
+    ```  
+    这里告诉了我们：目前处于master分支，目前没有需要提交的文件，未追踪的文件是`test.txt`。  
+
+    查看简要状态信息：  
+    ```shell
+    $ git status -s
+
+    ?? test.txt
+    ```  
+    显示出一个test.txt文件，并且前面带有`??`标记。  
+    `??`代表新添加，未跟踪的文件。
+
+4.  要追踪文件变更，需要将文件放入暂存区:  
     ```shell
     $ git add test.txt
-    $ git commit -m "新建了test.txt文本"
     ```  
+    查看详细状态：  
+    ```shell
+    $ git status
+
+    On branch master
+
+    No commits yet
+
+    Changes to be committed:
+      (use "git rm --cached <file>..." to unstage)
+
+            new file:   test.txt
+    ```  
+    这里告诉我们：目前暂存区有一个新建的test.txt等待被提交。  
+
+    查看简要状态信息：  
+    ```shell
+    $ git status -s
+
+    A  test.txt
+    ```  
+    显示出一个test.txt文件，并且前面带有`A`标记。  
+    `A`代表
