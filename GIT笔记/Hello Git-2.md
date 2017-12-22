@@ -144,4 +144,6 @@ $ git config --global user.email = "你的邮箱"
     A  test.txt
     ```  
     显示出一个test.txt文件，并且前面带有`A`标记。  
-    `A`代表
+    `A`代表这是新添加到暂存区中的文件  
+
+5. 查看文件的变更
